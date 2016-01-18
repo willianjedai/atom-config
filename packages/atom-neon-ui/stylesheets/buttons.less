@@ -1,0 +1,72 @@
+@import "ui-variables";
+@import "ui-mixins";
+
+.btn-background (@color, @hover-color, @selected-color, @text-color) {
+  color: @text-color;
+  background-color: @color;
+  transition: transform .1s ease;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2);
+
+  &:focus {
+    color: @text-color;
+    box-shadow: 0 0 4px 0 @hover-color;
+  }
+
+  &:hover {
+    color: @text-color-highlight;
+    text-shadow: 0 0 2px @text-color-highlight;
+    background: @hover-color;
+    box-shadow: 0 0 8px 0 @hover-color;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    color: saturate(lighten(@text-color-highlight, 30%), 30%);
+    background: saturate(@hover-color, 30%);
+    box-shadow: 0 0 4px 0 saturate(@hover-color, 30%);
+  }
+
+  &.selected,
+  &.selected:hover {
+    color: @text-color-highlight;
+    background:darken(@selected-color, 5%);
+    box-shadow: 0 0 8px 0 saturate(@hover-color, 30%) inset, 0 0 8px 0 saturate(@hover-color, 30%);
+    text-shadow: 0 0 2px black;
+    transform: scale(0.95);
+    &:hover {
+      background:@selected-color;
+    }
+  }
+}
+
+.btn-variant (@color) {
+  @bg: darken(@color, 10%);
+  @hover: @color;
+  @selected: @color;
+  .btn-background(@bg, @hover, @selected, @text-color-highlight);
+}
+
+.btn {
+  .btn-background(@button-background-color, @button-background-color-hover, @button-background-color-selected, @text-color);
+}
+
+.btn.btn-primary {
+  .btn-variant(@background-color-info);
+}
+.btn.btn-info {
+  .btn-variant(@background-color-info);
+}
+.btn.btn-success {
+  .btn-variant(@background-color-success);
+}
+.btn.btn-warning {
+  .btn-variant(@background-color-warning);
+}
+.btn.btn-error {
+  .btn-variant(@background-color-error);
+}
+
+.caret {
+  border-top: 5px solid #fff;
+  margin-top: -1px;
+}

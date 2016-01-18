@@ -1,0 +1,17 @@
+"*":
+  core:
+    themes: [
+      "one-dark-ui"
+      "neon-syntax"
+    ]
+  editor:
+    backUpBeforeSaving: true
+    invisibles: {}
+    showIndentGuide: true
+    softWrap: true
+  "exception-reporting":
+    userId: "447425a6-a429-c9f9-0c27-1a530502ba1a"
+  "markdown-preview":
+    breakOnSingleNewline: true
+  welcome:
+    showOnStartup: false
